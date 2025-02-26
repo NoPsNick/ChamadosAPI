@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="ChamadosAPI.LoginControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ChamadosAPI"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Espaço para os campos -->
+            <RowDefinition Height="Auto"/>
+            <!-- Espaço para os botões -->
+            <RowDefinition Height="*"/>
+            <!-- Preenche o restante da tela, se necessário -->
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <!-- Para os rótulos -->
+            <ColumnDefinition Width="*"/>
+            <!-- Para os campos -->
+        </Grid.ColumnDefinitions>
+
+        <!-- Campo Usuário -->
+        <TextBlock Text="Usuário:" VerticalAlignment="Center" Margin="10" Grid.Row="0" Grid.Column="0"/>
+        <TextBox x:Name="UsernameTextBox" VerticalAlignment="Center" Margin="10" Grid.Row="0" Grid.Column="1"/>
+
+        <!-- Campo Senha -->
+        <TextBlock Text="Senha:" VerticalAlignment="Center" Margin="10" Grid.Row="1" Grid.Column="0"/>
+        <PasswordBox x:Name="PasswordBox" VerticalAlignment="Center" Margin="10" Grid.Row="1" Grid.Column="1"/>
+
+        <!-- Botões -->
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" Margin="10">
+            <Button x:Name="LoginButton" Content="Login" Width="100" Height="35" Margin="5" Click="LoginButton_Click"/>
+            <Button Content="Registrar" Width="100" Height="35" Margin="5" Click="RegisterButton_Click"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

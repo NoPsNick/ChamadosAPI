@@ -1,0 +1,92 @@
+﻿<Page x:Class="ChamadosAPI.AdminPageTicketCheck"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Detalhes do Chamado">
+
+    <Grid Background="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Cabeçalho -->
+            <RowDefinition Height="Auto"/>
+            <!-- Informações do chamado -->
+            <RowDefinition Height="Auto"/>
+            <!-- Descrição -->
+            <RowDefinition Height="*"/>
+            <!-- Respostas -->
+            <RowDefinition Height="Auto"/>
+            <!-- Botão de alteração de status -->
+        </Grid.RowDefinitions>
+
+        <!-- Botão Voltar -->
+        <Button Content="Voltar" Click="BackButton" Width="100" Height="30" 
+            Margin="10" HorizontalAlignment="Left" Grid.Row="0"/>
+
+        <!-- Título e ID do chamado -->
+        <StackPanel Orientation="Horizontal" Margin="10" HorizontalAlignment="Right" Grid.Row="0">
+            <TextBlock Text="ID: " FontWeight="Bold"/>
+            <TextBlock Text="{Binding Chamado.Id}" Margin="5,0"/>
+            <TextBlock Text=" | " FontWeight="Bold"/>
+            <TextBlock Text="{Binding Chamado.Title}" FontSize="16" FontWeight="Bold"/>
+        </StackPanel>
+
+        <!-- Informações do chamado -->
+        <Grid Grid.Row="1" Margin="0,10,0,20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Remetente -->
+            <TextBlock Text="Remetente:" FontWeight="Bold" Grid.Row="0" Grid.Column="0" Margin="0,0,10,0"/>
+            <TextBlock Text="{Binding Chamado.Sender.Username}" Grid.Row="0" Grid.Column="1"/>
+
+            <!-- Status -->
+            <TextBlock Text="Status:" FontWeight="Bold" Grid.Row="0" Grid.Column="2" Margin="20,0,10,0"/>
+            <ComboBox x:Name="StatusComboBox" Grid.Row="0" Grid.Column="3"/>
+
+            <!-- Criado em -->
+            <TextBlock Text="Criado em:" FontWeight="Bold" Grid.Row="1" Grid.Column="0" Margin="0,0,10,0"/>
+            <TextBlock Text="{Binding Chamado.CreatedAt, StringFormat='dd/MM/yyyy HH:mm'}" Grid.Row="1" Grid.Column="1"/>
+
+            <!-- Última alteração -->
+            <TextBlock Text="Última alteração por:" FontWeight="Bold" Grid.Row="1" Grid.Column="2" Margin="20,0,10,0"/>
+            <TextBlock Text="{Binding Chamado.LastTimeChangedBy.Username}" Grid.Row="1" Grid.Column="3"/>
+        </Grid>
+
+        <!-- Descrição -->
+        <StackPanel Grid.Row="2" Margin="0,0,0,20">
+            <TextBlock Text="Descrição:" FontWeight="Bold"/>
+            <TextBlock Text="{Binding Chamado.Description}" TextWrapping="Wrap" Margin="5,0,0,10"/>
+        </StackPanel>
+
+        <!-- Respostas -->
+        <Grid Grid.Row="3">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <!-- Título e botão -->
+                <RowDefinition Height="*"/>
+                <!-- Lista de respostas com rolagem -->
+            </Grid.RowDefinitions>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="0" Margin="0,0,0,10">
+                <TextBlock Text="Respostas:" FontWeight="Bold" VerticalAlignment="Center"/>
+                <Button Content="Buscar Respostas" Click="FetchResponsesButtonClick" Width="150" Height="30"
+                        Margin="10,0,0,0" HorizontalAlignment="Left"/>
+            </StackPanel>
+
+            <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Height="Auto">
+                <StackPanel x:Name="ResponsesStackPanel" Margin="5,10,0,0"/>
+            </ScrollViewer>
+        </Grid>
+
+        <!-- Botão de Alteração de Status -->
+        <Button Content="Alterar Status" Click="ChangeStatusButtonClick" Width="150" Height="30"
+                Margin="0,10,0,10" HorizontalAlignment="Left" Grid.Row="4"/>
+    </Grid>
+</Page>

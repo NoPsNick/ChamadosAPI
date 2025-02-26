@@ -1,0 +1,56 @@
+﻿<Page x:Class="ChamadosAPI.UserPageSendTicket"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Criação de setor">
+
+    <Grid Background="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <!-- Área principal -->
+            <ColumnDefinition Width="1*"/>
+            <!-- TreeView dos usuários -->
+        </Grid.ColumnDefinitions>
+
+        <!-- Botão Voltar -->
+        <Button Content="Voltar" 
+                Click="BackButton" 
+                Width="100" Height="30" 
+                HorizontalAlignment="Left" 
+                Margin="10"/>
+
+        <!-- Área de entrada de dados -->
+        <StackPanel Grid.Row="1" Grid.Column="0" Margin="10">
+            <!-- Título -->
+            <TextBlock Text="Título do chamado:" FontSize="12" FontWeight="Bold" Margin="0,5"/>
+            <TextBox x:Name="TitleTextBox" Height="30" Margin="0,0,0,10"/>
+
+            <!-- Descrição (campo grande) -->
+            <TextBlock Text="Descrição do chamado:" FontSize="12" FontWeight="Bold" Margin="0,5"/>
+            <TextBox x:Name="DescriptionTextBox" Height="100" 
+                     TextWrapping="Wrap" AcceptsReturn="True"
+                     VerticalScrollBarVisibility="Auto" Margin="0,0,0,10"/>
+        </StackPanel>
+
+        <!-- TreeView dos usuários e setores -->
+        <Border Grid.Row="1" Grid.Column="1" Margin="10" Padding="5" 
+                BorderBrush="Gray" BorderThickness="1">
+            <StackPanel>
+                <TextBlock Text="Usuários e Setores" FontSize="14" FontWeight="Bold" Margin="0,0,0,5"/>
+                <TreeView x:Name="SectorUserTreeView" Height="250"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Botão Enviar Chamado -->
+        <Button Content="Enviar Chamado" 
+                Click="SendTicketButton_Click" 
+                Grid.Row="2" Grid.ColumnSpan="2"
+                Width="120" Height="40" 
+                HorizontalAlignment="Center" Margin="10"/>
+    </Grid>
+</Page>

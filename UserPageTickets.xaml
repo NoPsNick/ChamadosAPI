@@ -1,0 +1,48 @@
+﻿<Page x:Class="ChamadosAPI.UserPageTickets"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ChamadosAPI"
+      Title="UserPageTickets">
+
+    <Grid Background="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Para o botão Voltar -->
+            <RowDefinition Height="Auto"/>
+            <!-- Para os campos de entrada -->
+            <RowDefinition Height="*"/>
+            <!-- Para a lista de chamados -->
+        </Grid.RowDefinitions>
+
+        <!-- Botão Voltar fixo no canto superior esquerdo -->
+        <Button Content="Voltar" Click="BackButton" Width="100" Height="30" 
+            Margin="10" HorizontalAlignment="Left" Grid.Row="0"/>
+
+        <Button Content="Limpar Lista" Click="ClearList" Width="100" Height="30" 
+        Margin="10" HorizontalAlignment="Right" Grid.Row="0" Background="Yellow" Foreground="Black"/>
+
+        <!-- Campos de busca -->
+        <StackPanel Orientation="Vertical" Margin="10" Grid.Row="1">
+            <!-- Buscar chamados ENVIADOS -->
+            <TextBlock Text="Buscar os chamados ENVIADOS" Margin="2"/>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="SentButton" Content="Buscar Chamados Enviados" Width="200" Height="30" Margin="0" Click="SentButton_Click"/>
+            </StackPanel>
+
+            <!-- Buscar chamados RECEBIDOS -->
+            <TextBlock Text="Buscar os chamados RECEBIDOS" Margin="2"/>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="ReceivedButton" Content="Buscar Chamados Recebidos" Width="200" Height="30" Margin="0" Click="ReceivedButton_Click"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Lista de chamados -->
+        <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto" Margin="10">
+            <StackPanel x:Name="TicketsStackPanel" Margin="5">
+                <!-- Os chamados serão adicionados dinamicamente aqui -->
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

@@ -1,0 +1,59 @@
+﻿<Page x:Class="ChamadosAPI.AdminPageTicketResponse"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Resposta do chamado">
+
+    <Grid Background="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Cabeçalho -->
+            <RowDefinition Height="Auto"/>
+            <!-- Informações da resposta -->
+            <RowDefinition Height="*"/>
+            <!-- Conteúdo -->
+        </Grid.RowDefinitions>
+
+        <!-- Cabeçalho com Botão Voltar e IDs -->
+        <DockPanel Grid.Row="0" HorizontalAlignment="Stretch">
+            <Button Content="Voltar" Click="BackButton" Width="100" Height="30" 
+                    Margin="0,0,10,0" DockPanel.Dock="Left"/>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <TextBlock Text="ID: " FontWeight="Bold"/>
+                <TextBlock Text="{Binding Response.Id}" Margin="5,0"/>
+                <TextBlock Text=" | ID do chamado: " FontWeight="Bold"/>
+                <TextBlock Text="{Binding Response.TicketId}" Margin="5,0"/>
+            </StackPanel>
+        </DockPanel>
+
+        <!-- Informações da Resposta -->
+        <Grid Grid.Row="1" Margin="0,10,0,20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Resposta feita por -->
+            <TextBlock Text="Resposta feita por:" FontWeight="Bold" Grid.Row="0" Grid.Column="0" Margin="0,0,10,0"/>
+            <TextBlock Text="{Binding Response.Responder.Username}" Grid.Row="0" Grid.Column="1"/>
+
+            <!-- Criado em -->
+            <TextBlock Text="Feita em:" FontWeight="Bold" Grid.Row="1" Grid.Column="0" Margin="0,0,10,0"/>
+            <TextBlock Text="{Binding Response.CreatedAt, StringFormat='dd/MM/yyyy HH:mm'}" Grid.Row="1" Grid.Column="1"/>
+        </Grid>
+
+        <!-- Conteúdo da Resposta -->
+        <StackPanel Grid.Row="2" Margin="0,0,0,20">
+            <TextBlock Text="Resposta:" FontWeight="Bold"/>
+            <TextBlock Text="{Binding Response.Content}" TextWrapping="Wrap" Margin="5,0,0,10"/>
+        </StackPanel>
+
+    </Grid>
+</Page>

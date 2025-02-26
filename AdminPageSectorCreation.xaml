@@ -1,0 +1,38 @@
+﻿<Page x:Class="ChamadosAPI.AdminPageSectorCreation"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Criação de setor">
+    <Grid Background="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Botão Voltar -->
+        <Button Content="Voltar" 
+                Click="BackButton" 
+                Width="100" Height="30" 
+                HorizontalAlignment="Left" 
+                Margin="10" />
+
+        <!-- Campos de entrada -->
+        <StackPanel Grid.Row="1" Margin="10,20">
+            <TextBlock Text="Nome:" Margin="5"/>
+            <TextBox x:Name="NomeTextBox" Margin="5"/>
+
+            <TextBlock Text="Descrição:" Margin="5"/>
+            <TextBox x:Name="DescricaoTextBox" Margin="5"/>
+
+            <TextBlock Text="Gerente:" Margin="5"/>
+            <ComboBox x:Name="GerenteComboBox" Height="30" Margin="5"/>
+        </StackPanel>
+
+        <!-- Botão Criar Setor -->
+        <Button Content="Criar Setor" 
+                Click="CreateSectorButtonClick" 
+                Grid.Row="2"
+                Width="120" Height="40" 
+                HorizontalAlignment="Center" Margin="10"/>
+    </Grid>
+</Page>

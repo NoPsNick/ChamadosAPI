@@ -1,0 +1,28 @@
+﻿<Page x:Class="ChamadosAPI.AdminPageUsers"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ChamadosAPI"
+      Title="Usuários">
+
+    <Grid Background="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Botões superiores -->
+        <StackPanel Orientation="Horizontal" Margin="10" Grid.Row="0">
+            <Button Content="Voltar" Click="BackButton" Width="100" Height="30" Margin="5"/>
+        </StackPanel>
+
+        <!-- Lista de usuários -->
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="10">
+            <StackPanel x:Name="UsuariosStackPanel" Margin="5">
+                <!-- Os usuários serão adicionados dinâmicamente aqui -->
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>

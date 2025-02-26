@@ -1,0 +1,25 @@
+﻿<Page x:Class="ChamadosAPI.AdminPageSectors"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Setores">
+    <Grid Background="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Botões superiores -->
+        <StackPanel Orientation="Horizontal" Margin="10" Grid.Row="0">
+            <Button Content="Voltar" Click="BackButton" Width="100" Height="30" Margin="5"/>
+            <Button Content="Criar Setor" Click="Criar_Setor_Click" Width="120" Height="30" Margin="5"/>
+        </StackPanel>
+
+        <!-- Lista de setores -->
+        <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto" Margin="10">
+            <StackPanel x:Name="SetoresStackPanel" Margin="5">
+                <!-- Os setores serão adicionados dinamicamente aqui -->
+            </StackPanel>
+        </ScrollViewer>
+    </Grid>
+</Page>
